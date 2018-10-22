@@ -23,11 +23,11 @@
     	<legend>Display</legend>
 		    <div class="col-sm-6">
 			    <table ng-table="tableParams" class="table" show-filter="false">
-				    <tr ng-repeat="user in allUsers">
+				    <tr ng-repeat="employee in allUsers">
 				        <td title="'Name'" filter="{ userName: 'text'}" sortable="'name'">
-				            {{user.userName}}</td>
+				            {{employee.userName}}</td>
 				        <td title="'Skills'" filter="{ skillName: 'text'}" sortable="'skill'">
-				            {{user.skillsCsv}}</td>
+				            {{employee.skillsCsv}}</td>
 				    </tr>
 				</table>
 			</div>
