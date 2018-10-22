@@ -1,4 +1,4 @@
-package com.neil.aithre.repository;
+package com.neilo.aithre.repository;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,16 +9,13 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.neilo.aithre.DevOpsDemoApplication;
 import com.neilo.aithre.entity.User;
 import com.neilo.aithre.repository.UserRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@SpringBootTest(classes={DevOpsDemoApplication.class})
 public class UserRepositoryIntegrationTest {
 	@Autowired
     private TestEntityManager entityManager;
