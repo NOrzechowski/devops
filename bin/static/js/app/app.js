@@ -1,9 +1,9 @@
 'use strict'
 
-var demoApp = angular.module('demo', [ 'ui.bootstrap', 'demo.controllers',
-		'demo.services' ]);
-demoApp.constant("CONSTANTS", {
+var devopsDemoApp = angular.module('devopsDemo', [ 'ui.bootstrap', 'devopsDemo.controllers', 'devopsDemo.services','chart.js' ,'ngTable']);
+devopsDemoApp.constant("CONSTANTS", {
 	getUserByIdUrl : "/user/getUser/",
 	getAllUsers : "/user/getAllUsers",
-	saveUser : "/user/saveUser"
+	saveUser : "/user/saveUser",
+	getCircleChartData : "/data/getCircleChartData"
 });

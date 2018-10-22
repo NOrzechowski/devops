@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('demo.services', []).factory('UserService',
+angular.module('devopsDemo.services', []).factory('UserService',
 		[ "$http", "CONSTANTS", function($http, CONSTANTS) {
 			var service = {};
 			service.getUserById = function(userId) {
@@ -9,6 +9,9 @@ angular.module('demo.services', []).factory('UserService',
 			}
 			service.getAllUsers = function() {
 				return $http.get(CONSTANTS.getAllUsers);
+			}
+			service.getCircleData = function() {
+				return $http.get(CONSTANTS.getCircleChartData);
 			}
 			service.saveUser = function(userDto) {
 				return $http.post(CONSTANTS.saveUser, userDto);

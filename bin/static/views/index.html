@@ -2,27 +2,40 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Main Page</title>
+    <title>DevOps Demo</title>
 </head>
-<body ng-app="demo">
+<body ng-app="devopsDemo">
 <hr/>
 <div class="container" ng-controller="UserController">
+    
     <div class="row">
-        <label>User</label> <input type="text" ng-model="userDto.userName" class="input-sm spacing"/>
-        <label>Skills</label> <input type="text" ng-model="skills" ng-list class="input-sm custom-width spacing"
-                                     placeholder="use comma to separate skills"/>
-        <button ng-click="saveUser()" class="btn btn-sm btn-info">Save User</button>
+    	<fieldset>
+    	<legend>Data Entry</legend>
+	        <label>User</label> <input type="text" ng-model="userDto.userName" class="input-sm spacing"/>
+	        <label>Skills</label> <input type="text" ng-model="skills" ng-list class="input-sm custom-width spacing"
+	                                     placeholder="comma seperated skills (case sensitive)"/>
+	        <button ng-click="saveUser()" class="btn btn-sm btn-info">Add User</button>
+    	</fieldset>
     </div>
     <hr/>
     <div class="row">
-        <p>{{allUsers | json}}</p>
-    </div>
-    <hr/>
-    <div class="row" ng-repeat="user in allUsers">
-        <div class="">
-            <h3>{{user.userName}}</h3>
-            <span ng-repeat="skill in user.skillDtos" class="spacing">{{skill.skillName}}</span>
-        </div>
+    	<fieldset>
+    	<legend>Display</legend>
+		    <div class="col-sm-6">
+			    <table ng-table="tableParams" class="table" show-filter="false">
+				    <tr ng-repeat="user in allUsers">
+				        <td title="'Name'" filter="{ userName: 'text'}" sortable="'name'">
+				            {{user.userName}}</td>
+				        <td title="'Skills'" filter="{ skillName: 'text'}" sortable="'skill'">
+				            {{user.skillsCsv}}</td>
+				    </tr>
+				</table>
+			</div>
+		    <div class="col-sm-4">
+		    	<canvas id="doughnut" class="chart chart-doughnut"	chart-data="circleChartData" chart-labels="labels">
+				</canvas> 
+		    </div>
+	    </fieldset>
     </div>
 </div>
 </body>
@@ -31,6 +44,11 @@
 <script src="js/app/app.js"></script>
 <script src="js/app/UserController.js"></script>
 <script src="js/app/UserService.js"></script>
+<script src="http://cdn.jsdelivr.net/chart.js/latest/Chart.min.js"></script>
+<script src="http://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
+<link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+<script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
 <link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
 <link rel="stylesheet" href="css/app/app.css"/>
+
 </html>
