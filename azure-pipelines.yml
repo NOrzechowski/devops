@@ -19,7 +19,7 @@ steps:
     sqGradlePluginVersionChoice: true
     checkStyleRunAnalysis: false
     findBugsRunAnalysis: false
-    codeCoverageToolOption: jaCoCo
+    codeCoverageToolOption: 'jaCoCo'
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
 
