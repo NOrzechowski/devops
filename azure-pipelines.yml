@@ -17,7 +17,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     sqGradlePluginVersionChoice: true
-    checkStyleRunAnalysis: false
+    checkStyleRunAnalysis: true
     findBugsRunAnalysis: false
     codeCoverageToolOption: 'jaCoCo'
     codeCoverageClassFilesDirectories: 'build/classes/java/main/'
