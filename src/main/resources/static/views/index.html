@@ -6,7 +6,7 @@
 </head>
 <body ng-app="devopsDemo">
 <hr/>
-<div class="container" ng-controller="employeeController">
+<div class="container" ng-controller="EmployeeController">
     
     <div class="row">
     	<fieldset>
@@ -14,7 +14,7 @@
 	        <label>Employee</label> <input type="text" ng-model="employeeDto.employeeName" class="input-sm spacing"/>
 	        <label>Skills</label> <input type="text" ng-model="skills" ng-list class="input-sm custom-width spacing"
 	                                     placeholder="comma seperated skills"/>
-	        <button ng-click="saveemployee()" class="btn btn-sm btn-info">Add Employee</button>
+	        <button ng-click="saveEmployee()" class="btn btn-sm btn-info">Add Employee</button>
     	</fieldset>
     </div>
     <hr/>
@@ -46,7 +46,7 @@
 <script src="js/app/dataService.js"></script>
 <script src="http://cdn.jsdelivr.net/chart.js/latest/Chart.min.js"></script>
 <script src="http://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
-<link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+<link rel="stylesheet" href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
 <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
 <link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
 <link rel="stylesheet" href="css/app/app.css"/>
