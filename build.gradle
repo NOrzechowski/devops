@@ -2,13 +2,17 @@ buildscript {
 	ext {
 		springBootVersion = '2.0.6.RELEASE'
 	}
-	
+
 	repositories {
 		mavenCentral()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
 }
 
 apply plugin: 'java'
@@ -26,7 +30,7 @@ repositories {
 
 
 dependencies {
-   
+
     compile("org.togglz:togglz-console:2.6.1.Final")
     compile("org.togglz:togglz-spring-boot-starter:2.6.1.Final")
     compile("com.google.guava:guava:26.0-jre")
