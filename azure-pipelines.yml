@@ -16,7 +16,6 @@ steps:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    sonarQubeRunAnalysis: true
     sqGradlePluginVersionChoice: true
     checkStyleRunAnalysis: true
     findBugsRunAnalysis: true
