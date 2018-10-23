@@ -20,7 +20,7 @@ steps:
     checkStyleRunAnalysis: false
     findBugsRunAnalysis: false
     codeCoverageToolOption: 'jaCoCo'
-    codeCoverageClassFilesDirectories: 'build/classes/java/main/
+    codeCoverageClassFilesDirectories: 'build/classes/java/main/'
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
 
