@@ -11,8 +11,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.neilo.aithre.entity.User;
-import com.neilo.aithre.repository.UserRepository;
+import com.neilo.aithre.entity.Employee;
+import com.neilo.aithre.repository.EmployeeRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -21,19 +21,17 @@ public class UserRepositoryIntegrationTest {
     private TestEntityManager entityManager;
   
     @Autowired
-    private UserRepository userRepository;
+    private EmployeeRepository userRepository;
  
     @Test
     public void testFindById() {
-        User testUser = new User();
-        testUser.setUserName("neil orzechowski");
-        entityManager.persist(testUser);
-        entityManager.flush();
-     
-        Optional<User> found = userRepository.findById(testUser.getUserId());
-     
-        // then
-        assertEquals(testUser.getUserName(), found.get().getUserName());
+        Employee testEmployee = new Employee();
+        testEmployee.setEmployeeName("neil orzechowski");
+        entityManager.persist(testEmployee);
+        entityManager.flush();     
+        Optional<Employee> found = userRepository.findById(testEmployee.getEmployeeId());
+        assertEquals(testEmployee.getEmployeeName(), found.get().getEmployeeName());
     }
+    
  
 }

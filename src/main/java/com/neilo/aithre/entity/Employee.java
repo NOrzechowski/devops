@@ -9,34 +9,34 @@ import javax.persistence.*;
 import javax.persistence.Id;
 
 @Entity
-public class User implements Serializable{
+public class Employee implements Serializable{
 
     private static final long serialVersionUID = 0x62A6DA99AABDA8A8L;
 	
 	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	private Integer userId;
+	private Integer employeeId;
     @Column
-    private String userName;
+    private String employeeName;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Skill> skills= new LinkedList<>();
     
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getEmployeeId() {
+        return employeeId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
     public List<Skill> getSkills() {
@@ -47,11 +47,11 @@ public class User implements Serializable{
         this.skills = skills;
     }
 
-    public User() {
+    public Employee() {
     }
 
-    public User(String userName, List<Skill> skills) {
-        this.userName = userName;
+    public Employee(String employeeName, List<Skill> skills) {
+        this.employeeName = employeeName;
         this.skills = skills;
     }
 }

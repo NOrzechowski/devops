@@ -6,15 +6,15 @@
 </head>
 <body ng-app="devopsDemo">
 <hr/>
-<div class="container" ng-controller="UserController">
+<div class="container" ng-controller="employeeController">
     
     <div class="row">
     	<fieldset>
     	<legend>Data Entry</legend>
-	        <label>Employee</label> <input type="text" ng-model="userDto.userName" class="input-sm spacing"/>
+	        <label>Employee</label> <input type="text" ng-model="employeeDto.employeeName" class="input-sm spacing"/>
 	        <label>Skills</label> <input type="text" ng-model="skills" ng-list class="input-sm custom-width spacing"
 	                                     placeholder="comma seperated skills"/>
-	        <button ng-click="saveUser()" class="btn btn-sm btn-info">Add Employee</button>
+	        <button ng-click="saveemployee()" class="btn btn-sm btn-info">Add Employee</button>
     	</fieldset>
     </div>
     <hr/>
@@ -23,9 +23,9 @@
     	<legend>Display</legend>
 		    <div class="col-sm-6">
 			    <table ng-table="tableParams" class="table" show-filter="false">
-				    <tr ng-repeat="employee in allUsers">
-				        <td title="'Name'" filter="{ userName: 'text'}" sortable="'name'">
-				            {{employee.userName}}</td>
+				    <tr ng-repeat="employee in allemployees">
+				        <td title="'Name'" filter="{ employeeName: 'text'}" sortable="'name'">
+				            {{employee.employeeName}}</td>
 				        <td title="'Skills'" filter="{ skillName: 'text'}" sortable="'skill'">
 				            {{employee.skillsCsv}}</td>
 				    </tr>
@@ -42,8 +42,8 @@
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
 <script src="js/app/app.js"></script>
-<script src="js/app/UserController.js"></script>
-<script src="js/app/UserService.js"></script>
+<script src="js/app/employeeController.js"></script>
+<script src="js/app/dataService.js"></script>
 <script src="http://cdn.jsdelivr.net/chart.js/latest/Chart.min.js"></script>
 <script src="http://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
 <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">

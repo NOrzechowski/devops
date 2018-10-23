@@ -5,37 +5,37 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class UserDto {
-	Integer userId;
-	String userName;
+public class EmployeeDto {
+	Integer employeeId;
+	String employeeName;
 	List<SkillDto> skillDtos = new ArrayList<>();
 	String skillsCsv;
 
-	public UserDto(Integer userId, String userName, List<SkillDto> skillDtos) {
-		this.userId = userId;
-		this.userName = userName;
+	public EmployeeDto(Integer employeeId, String employeeName, List<SkillDto> skillDtos) {
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
 		this.skillDtos = skillDtos;
 		if (!Objects.isNull(skillDtos))
 			this.skillsCsv = skillDtos.stream().map(e -> e.getSkillName()).collect(Collectors.joining(","));
 	}
 
-	public UserDto() {
+	public EmployeeDto() {
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public Integer getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void seteEmployeeId(Integer employeeId) {
+		this.employeeId = employeeId;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getEmployeeName() {
+		return employeeName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
 	}
 
 	public List<SkillDto> getSkillDtos() {

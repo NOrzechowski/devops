@@ -1,12 +1,12 @@
 'use strict'
 
 var module = angular.module('devopsDemo.controllers', []);
-module.controller("UserController", [ "$scope", "UserService", "NgTableParams",
-		function($scope, UserService, NgTableParams) {
+module.controller("EmployeeController", [ "$scope", "DataService", "NgTableParams",
+		function($scope, EmployeeService, NgTableParams) {
 
-			$scope.userDto = {
-				userId : null,
-				userName : null,
+			$scope.employeeDto = {
+				employeeId : null,
+				employeeName : null,
 				skillDtos : []
 			};
 			$scope.skills = [];
@@ -15,7 +15,7 @@ module.controller("UserController", [ "$scope", "UserService", "NgTableParams",
 			$scope.circleChartData = [];
 			
 			$scope.loadCircleData = function() {
-				UserService.getCircleData().then(function(value){
+				EmployeeService.getCircleData().then(function(value){
 					if(value.data){
 						$scope.labels = value.data.legends;
 						$scope.circleChartData = value.data.values;
@@ -23,11 +23,11 @@ module.controller("UserController", [ "$scope", "UserService", "NgTableParams",
 				});
 			}
 					
-			$scope.tableParams = new NgTableParams({}, { dataset: $scope.allUsers});
+			$scope.tableParams = new NgTableParams({}, { dataset: $scope.allEmployees});
 					
-			$scope.loadUsers = function() {
-				UserService.getAllUsers().then(function(value) {
-					$scope.allUsers = value.data;
+			$scope.loadEmployees = function() {
+				EmployeeService.getAllEmployees().then(function(value) {
+					$scope.allEmployees = value.data;
 				}, function(reason) {
 					console.log("error occured");
 				}, function(value) {
@@ -35,18 +35,18 @@ module.controller("UserController", [ "$scope", "UserService", "NgTableParams",
 				});
 			}
 
-			$scope.saveUser = function() {
-				$scope.userDto.skillDtos = $scope.skills.map(skill => {
+			$scope.saveEmployee = function() {
+				$scope.employeeDto.skillDtos = $scope.skills.map(skill => {
 					return {skillId: null, skillName: skill};
 				});
-				UserService.saveUser($scope.userDto).then(function() {
+				EmployeeService.saveEmployee($scope.employeeDto).then(function() {
 				
-					$scope.loadUsers ();
+					$scope.loadEmployees ();
 					$scope.loadCircleData();
 					$scope.skills = [];
-					$scope.userDto = {
-						userId : null,
-						userName : null,
+					$scope.employeeDto = {
+						employeeId : null,
+						employeeName : null,
 						skillDtos : []
 					};
 				}, function(reason) {
@@ -57,6 +57,6 @@ module.controller("UserController", [ "$scope", "UserService", "NgTableParams",
 			}
 			
 			
-			$scope.loadUsers();
+			$scope.loadEmployees();
 			$scope.loadCircleData();
 		} ]);

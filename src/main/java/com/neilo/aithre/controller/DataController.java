@@ -8,17 +8,16 @@ import com.neilo.aithre.dto.ChartDataDto;
 import com.neilo.aithre.service.DataService;
 import com.neilo.aithre.utils.Constants;
 
-
 @RequestMapping("/data")
 @RestController
 public class DataController {
-	
+
 	@Autowired
 	DataService dataService;
 
-	@RequestMapping(Constants.GET_CIRCLE_CHART)
-	public ChartDataDto getUserById() {
-		
+	@RequestMapping(Constants.GET_CIRCLE_CHART_DATA)
+	public ChartDataDto getCircleChartData() {
+
 		return dataService.getCircleChartData();
 	}
 }

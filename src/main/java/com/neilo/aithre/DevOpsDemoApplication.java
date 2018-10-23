@@ -9,13 +9,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.neilo.aithre.entity.Skill;
-import com.neilo.aithre.entity.User;
-import com.neilo.aithre.repository.UserRepository;
+import com.neilo.aithre.entity.Employee;
+import com.neilo.aithre.repository.EmployeeRepository;
 
 @SpringBootApplication
 public class DevOpsDemoApplication {
 	@Autowired
-	UserRepository userRepository;
+	EmployeeRepository userRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DevOpsDemoApplication.class, args);
@@ -23,8 +23,8 @@ public class DevOpsDemoApplication {
 
 	@PostConstruct
 	public void setupDbWithData(){
-		User user= new User("Neil Orzechowski", null);
-		user.setSkills(Arrays.asList(new Skill("java"), new Skill("js")));
-		user= userRepository.save(user);
+		Employee employee = new Employee("Neil Orzechowski", null);
+		employee.setSkills(Arrays.asList(new Skill("java"), new Skill("js")));
+		userRepository.save(employee);
 	}
 }

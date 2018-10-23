@@ -11,17 +11,17 @@ import org.springframework.stereotype.Service;
 import com.neilo.aithre.dto.ChartDataDto;
 import com.neilo.aithre.entity.Skill;
 import com.neilo.aithre.repository.SkillRepository;
-import com.neilo.aithre.repository.UserRepository;
+import com.neilo.aithre.repository.EmployeeRepository;
 import com.neilo.aithre.service.DataService;
-import com.neilo.aithre.service.UserService;
+import com.neilo.aithre.service.EmployeeService;
 
 @Service
 public class DataServiceImpl implements DataService {
 	@Autowired
-	UserRepository userRepository;
+	EmployeeRepository employeeRepository;
 
 	@Autowired
-	UserService userService;
+	EmployeeService employeeService;
 
 	@Autowired
 	SkillRepository skillRepository;
@@ -38,7 +38,7 @@ public class DataServiceImpl implements DataService {
 		
 		for (String skill : results) {
 			legends.add(skill);
-			values.add(userService.getAllUsersBySkillName(skill).size());
+			values.add(employeeService.getEmployeesBySkillName(skill).size());
 		}
 
 		return new ChartDataDto(legends, values);
