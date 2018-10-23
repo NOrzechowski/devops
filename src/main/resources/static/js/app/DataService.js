@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('devopsDemo.services', []).factory('DataService',
+angular.module('devopsDemo.services', []).factory('DataService', 
 		[ "$http", "CONSTANTS", function($http, CONSTANTS) {
 			var service = {};
 			service.getEmployeeById = function(employeeId) {

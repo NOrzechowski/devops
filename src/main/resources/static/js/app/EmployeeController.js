@@ -1,7 +1,7 @@
 'use strict'
 
 var module = angular.module('devopsDemo.controllers', []);
-module.controller("EmployeeController", [ "$scope", "DataService", "NgTableParams",
+module.controller("EmployeeController", [ "$scope", "DataService", "NgTableParams", 
 		function($scope, EmployeeService, NgTableParams) {
 
 			$scope.employeeDto = {
