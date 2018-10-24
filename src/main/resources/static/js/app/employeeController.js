@@ -29,9 +29,9 @@ module.controller("EmployeeController", [ "$scope", "DataService", "NgTableParam
 				EmployeeService.getAllEmployees().then(function(value) {
 					$scope.allEmployees = value.data;
 				}, function(reason) {
-					console.log("error occured");
+					console.log("error");
 				}, function(value) {
-					console.log("no callback");
+					console.log(value);
 				});
 			}
 
@@ -50,9 +50,9 @@ module.controller("EmployeeController", [ "$scope", "DataService", "NgTableParam
 						skillDtos : []
 					};
 				}, function(reason) {
-					console.log("error occured");
+					console.log("error");
 				}, function(value) {
-					console.log("no callback");
+					console.log(value);
 				});
 			}
 			

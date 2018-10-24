@@ -12,16 +12,16 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.neilo.aithre.entity.Employee;
-import com.neilo.aithre.repository.EmployeeRepository;
+
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UserRepositoryIntegrationTest {
+public class EmployeeRepositoryIntegrationTest {
 	@Autowired
     private TestEntityManager entityManager;
   
     @Autowired
-    private EmployeeRepository userRepository;
+    private EmployeeRepository employeeRepository;
  
     @Test
     public void testFindById() {
@@ -29,7 +29,7 @@ public class UserRepositoryIntegrationTest {
         testEmployee.setEmployeeName("neil orzechowski");
         entityManager.persist(testEmployee);
         entityManager.flush();     
-        Optional<Employee> found = userRepository.findById(testEmployee.getEmployeeId());
+        Optional<Employee> found = employeeRepository.findById(testEmployee.getEmployeeId());
         assertEquals(testEmployee.getEmployeeName(), found.get().getEmployeeName());
     }
     
