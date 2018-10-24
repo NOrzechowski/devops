@@ -10,7 +10,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Employee implements Serializable{
-
     private static final long serialVersionUID = 0x62A6DA99AABDA8A8L;
 	
 	@Column
