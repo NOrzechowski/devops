@@ -26,7 +26,7 @@ public class EmployeeRepositoryIntegrationTest {
     @Test
     public void testFindById() {
         Employee testEmployee = new Employee();
-        testEmployee.setEmployeeName("neil orzechowski");
+        testEmployee.setEmployeeName("John Doe");
         entityManager.persist(testEmployee);
         entityManager.flush();     
         Optional<Employee> found = employeeRepository.findById(testEmployee.getEmployeeId());
